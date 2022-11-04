@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	 <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        html, body{
+            overflow: hidden;
+            font-family: Arial, Helvetica, sans-serif;
+            border:0px;
+            margin: 0px;
+            background-color: #14122e;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        h1 {
+            font-weight: 400;
+            font-size: 5em;
+            padding: 0px;
+            margin: 0px;
+            color: #5d58a7;
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+    </style>
+</head>
+<body>
+  
+        <div class="wrapper">
+         <div> <h1>Quote</h1> </div>
+        </div>
+      
+
+    <script>
+      
+        var h1 = document.getElementsByTagName("h1")[0];
+        var body = document.body;
+
+        const {text = "Quote", size,bg,color,author} = getParams();
+
+
+        if(text != null){
+            h1.textContent = text;
+            document.title  = text;
+        }
+
+        if(size  != null) h1.style.fontSize     = size;
+        if(color != null) h1.style.color        = color;
+        if(bg    != null) body.style.background = bg;
+
+
+
+        function getParams(){
+            const params = new URLSearchParams(window.location.search);
+    
+            return{
+                text   :params.get("t"),
+                size   :params.get("s"),
+                bg     :params.get("b"),
+                color  :params.get("c")
+            }
+
+        }
+    
+    </script>
+</body>
+</html>
